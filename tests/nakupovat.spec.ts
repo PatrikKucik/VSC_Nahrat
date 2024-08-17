@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  //npx playwright test nakupovat --headed
+  //npx playwright test nakupovat --headed   Kucik 17.8.2024
   test(({ browserName }) => browserName !== 'chromium', 'Chromium only!');
   await page.goto('https://www.saucedemo.com/');
   await page.locator('#root div').filter({ hasText: 'Accepted usernames are:standard_userlocked_out_userproblem_userperformance_glitc' }).nth(3).click();
