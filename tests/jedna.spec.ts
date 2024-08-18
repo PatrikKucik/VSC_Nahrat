@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // Expect a title "to contain" a substring.ddd
+  // Expect a title "to contain" a substring.dalsi pokus
   await expect(page).toHaveTitle(/Playwright/);
 });
 
