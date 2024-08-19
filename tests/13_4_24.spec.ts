@@ -1,41 +1,44 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
-  await page.locator('[data-test="username"]').click();
-  await page.locator('[data-test="username"]').fill('standard_user');
-  await page.locator('[data-test="password"]').click();
-  await page.locator('[data-test="password"]').fill('secret_sauce');
-  await page.locator('[data-test="login-button"]').click();
-  await expect(page).toHaveTitle(/Swag Labs/);
-
-  /*test('Fertertsdfhgerte', async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/inventory.html');
-  
-    // Expect a title "to contain" a substring.
-    await expect(page).toHaveTitle(/Swag Labs/);
-  });*/
-
-  await page.waitForTimeout(2000);
-
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-  await page.getByText('It\'s not every day that you').click();
-  await page.locator('[data-test="item-5-title-link"]').click();
-  await page.locator('[data-test="add-to-cart"]').click();
-  await page.locator('[data-test="back-to-products"]').click();
-  await page.locator('[data-test="shopping-cart-link"]').click();
-  await page.locator('[data-test="checkout"]').click();
-  await page.locator('[data-test="firstName"]').click();
-  await page.locator('[data-test="firstName"]').fill('Pasf');
-  await page.locator('[data-test="lastName"]').click();
-  await page.locator('[data-test="lastName"]').fill('Iafsfdsdf');
-  await page.locator('[data-test="postalCode"]').click();
-  await page.locator('[data-test="postalCode"]').fill('012562');
-
-  await page.waitForTimeout(2000);
-
-  await page.locator('[data-test="continue"]').click();
-  await page.locator('[data-test="finish"]').click();
-  await page.locator('[data-test="back-to-products"]').click();
+  await page.goto('https://dev-live-incredibles-prototype.caas-t02.telekom.de/');
+  await page.getByTestId('login-button').locator('svg').click();
+  await page.getByLabel('Username or email').click();
+  await page.getByLabel('Username or email').click();
+  await page.getByLabel('Username or email').click();
+  await page.getByLabel('Username or email').fill('dhrani-admin');
+  await page.getByLabel('Password').click();
+  await page.getByLabel('Password').fill('dhrani-0');
+  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.waitForTimeout(4000);
+  await page.getByRole('link', { name: 'Radio Cell Screen' }).click();
+  await page.getByLabel('TDG Site ID').click();
+  await page.getByLabel('TDG Site ID').press('CapsLock');
+  //await page.getByLabel('TDG Site ID').fill('SDFSD');
+  await page.getByText('Show Site General Information').click();
+  await page.getByLabel('TDG Site ID').click();
+  await page.getByLabel('TDG Site ID').fill('BY2222');
+  await page.getByLabel('Open calendar').click();
+  await page.getByLabel('August 15,').click();
+  await page.waitForTimeout(4000);
+  await page.getByRole('button', { name: 'Show Site' }).click();
+  await page.getByRole('treeitem', { name: 'Azimuth: 200' }).getByRole('button').click();
+  await page.getByRole('list').locator('button').filter({ hasText: 'add_circle' }).click();
+  await page.getByRole('button', { name: 'Antenna: AS_7-45556952-' }).click();
+  await page.getByRole('button', { name: 'Cell: 2-44060205-GSM900' }).click();
+  await page.getByRole('button', { name: 'Cell: LK2-64246600-LTE900' }).click();
+  await page.getByRole('button', { name: 'Antenna: AS_7-45556952-' }).click();
+  await page.getByRole('button', { name: 'Antenna: AS_7-45556952-' }).click();
+  await page.getByRole('button', { name: 'CLy2+/CLy2-' }).click();
+  await page.getByRole('button', { name: 'Rr2+/Rr2-' }).click();
+  await page.locator('.ag-header-cell-label').first().click();
+  await page.getByText('Property Name').click();
+  await page.getByText('Property Value').click();
+  await page.getByText('Rr2+/Rr2-', { exact: true }).click();
+  await page.getByRole('button', { name: 'Ly1+/Ly1-' }).click();
+  await page.getByRole('button', { name: 'CRy3+/CRy3-' }).click();
+  await page.getByLabel('Send e-mail').nth(1).click();
+  //await page.getByLabel('Send e-mail').first().click();
+  await page.locator('mat-toolbar #logout-button').click();
+  await page.getByRole('button', { name: 'Logout' }).click();
 });
