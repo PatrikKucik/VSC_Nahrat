@@ -4,7 +4,7 @@ test('test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   await page.locator('[data-test="username"]').click();
   await page.locator('[data-test="password"]').click();
-  // Expect a title "to contain" a substring.dalsi pokus c . 5
+  // Expect a title "to contain" a substring.dalsi pokus c . 6
   await page.locator('[data-test="password"]').fill('secret_sauce');
   await page.locator('[data-test="username"]').click();
   await page.locator('[data-test="username"]').click();
